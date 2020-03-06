@@ -44,7 +44,7 @@ app.post("/api/notes", function(req, res) {
         };
         notes.push(newNote);
         res.json(newNote);
-        fs.writeFile(path.join(__dirname, "db.json"), JSON.stringify(notes, null, 2), function(err) {
+        fs.writeFile(path.join(__dirname, "Develop/db/db.json"), JSON.stringify(notes), function(err) {
             if (err) throw err;
         });
     });
