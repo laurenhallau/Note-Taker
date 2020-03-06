@@ -7,7 +7,7 @@ const fs = require("fs");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, "Develop/public")));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
@@ -20,7 +20,7 @@ app.get("/", function(req, res) {
 
 // GET route sending user to NOTES page
 app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "Develop/public/notes.html"));
+    res.sendFile(path.join(__dirname, "/notes"));
 });
 
 // GET route using DB.JSON file
