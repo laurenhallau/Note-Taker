@@ -7,30 +7,30 @@ const fs = require("fs");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({extended: true}));
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Creating GET routes
 
 // GET route sending user to INDEX page
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "Develop/public/index.html"));
+    res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
 // GET route sending user to NOTES page
 app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "/notes"));
+    res.sendFile(path.join(__dirname, "public/notes.html"));
 });
 
 // GET route using DB.JSON file
 app.get("/api/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "Develop/db/db.json"));
+    res.sendFile(path.join(__dirname, "db.json"));
 });
 
 // Creating POST route- takes JSON input, "title" "text" and adds a new note object to the db.json file
 app.post("/api/notes", function(req, res) {
-    fs.readFile(path.join(__dirname, "Develop/db/db.json"), "utf8", function(error, response) {
+    fs.readFile(path.join(__dirname, "db.json"), "utf8", function(error, response) {
         if (error) {
             console.log(error);
         }
@@ -43,8 +43,8 @@ app.post("/api/notes", function(req, res) {
             text: noteRequest.text
         };
         notes.push(newNote);
-        res.json(newNote);
-        fs.writeFile(path.join(__dirname, "Develop/db/db.json"), JSON.stringify(notes), function(err) {
+        res.JSON(newNote);
+        fs.writeFile(path.join(__dirname, "db.json"), JSON.stringify(notes, null, 2), function(err) {
             if (err) throw err;
         });
     });
