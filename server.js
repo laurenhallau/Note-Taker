@@ -43,7 +43,7 @@ app.post("/api/notes", function(req, res) {
             text: noteRequest.text
         };
         notes.push(newNote);
-        res.JSON(newNote);
+        res.json(newNote);
         fs.writeFile(path.join(__dirname, "db.json"), JSON.stringify(notes, null, 2), function(err) {
             if (err) throw err;
         });
