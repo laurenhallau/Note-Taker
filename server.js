@@ -7,7 +7,7 @@ const fs = require("fs");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static("publi"));
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -15,12 +15,12 @@ app.use(express.json());
 
 // GET route sending user to INDEX page
 app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "publi/index.html"));
+    res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
 // GET route sending user to NOTES page
 app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "publi/notes.html"));
+    res.sendFile(path.join(__dirname, "public/notes.html"));
 });
 
 // GET route using DB.JSON file
