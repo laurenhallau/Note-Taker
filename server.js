@@ -15,7 +15,7 @@ app.use(express.json());
 
 // GET route sending user to INDEX page
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "public/index.html"));
+    res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 // GET route sending user to NOTES page
