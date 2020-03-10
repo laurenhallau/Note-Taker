@@ -9,7 +9,7 @@ I WANT to be able to delete notes I've written before
 SO THAT I can organize my thoughts and keep track of tasks I need to complete
 
 ## Link to live Heroku app
-https://git.heroku.com/note-taker-lwh.git
+http://note-taker-lwh.herokuapp.com/
 
 ## Screen Shot
 ![](./images/screenshot.png)
