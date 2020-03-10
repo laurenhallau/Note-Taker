@@ -14,7 +14,7 @@ app.use(express.json());
 // Creating GET routes
 
 // GET route sending user to INDEX page
-app.get("*", function(req, res) {
+app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
